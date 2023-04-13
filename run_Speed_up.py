@@ -95,7 +95,7 @@ for filename in os.listdir('Split_files'):
         out = subprocess.check_call(cmd, shell=True)
     except Exception:
         print("Pre-trained CNN Error for file {0}".format(f"contig_{i}"))
-        cmd = "rm input/*"
+        cmd = "mv input/* finished_input/"
         out = subprocess.check_call(cmd, shell=True)
         continue
 
@@ -113,12 +113,12 @@ for filename in os.listdir('Split_files'):
         out = subprocess.check_call(cmd, shell=True)
     except Exception:
         print("GCN Error for file {0}".format(f"contig_{i}"))
-        cmd = "rm input/*"
+        cmd = "mv input/* finished_input/"
         out = subprocess.check_call(cmd, shell=True)
         continue
 
     # Clean files
-    cmd = "rm input/*"
+    cmd = "mv input/* finished_input/"
     out = subprocess.check_call(cmd, shell=True)
 
     name_list = pd.read_csv("name_list.csv")
