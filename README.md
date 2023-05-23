@@ -1,6 +1,12 @@
 # PhaGCN2_clean
 The scripts were clean ver. of PhaGCN2, the database building ran only once. The database should download from PhaGCN2.
 
+# Easy use
+```bash
+python make_db/split_contig.py --contigs {your_fasta_file} --len 5000
+python run_Speed_up.py
+```
+
 # Changes from [PhaGCN2](https://github.com/KennthShang/PhaGCN2.0)
 - The python package scipy>=1.8+
 - Simplify the scripts.
