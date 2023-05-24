@@ -33,7 +33,6 @@ def special_match(strg, search=re.compile(r'[^ACGT]').search):
 
 # Env create
 check_folder("Split_files")
-check_folder("input")
 # Some container and counter
 file_id = 0
 records = []
@@ -42,7 +41,7 @@ cnt = 0
 for record in SeqIO.parse(args.contigs, 'fasta'):
     # Each FASTA take 1000 contigs.
     if cnt != 0 and cnt % 1000 == 0:
-        SeqIO.write(records, f"input/contig_{file_id}.fasta", "fasta")
+        SeqIO.write(records, f"Split_files/contig_{file_id}.fasta", "fasta")
         records = []
         file_id += 1
         cnt = 0
@@ -54,4 +53,4 @@ for record in SeqIO.parse(args.contigs, 'fasta'):
         cnt += 1
 
 # Remained collection
-SeqIO.write(records, f"input/contig_{file_id}.fasta", "fasta")
+SeqIO.write(records, f"Split_files/contig_{file_id}.fasta", "fasta")
